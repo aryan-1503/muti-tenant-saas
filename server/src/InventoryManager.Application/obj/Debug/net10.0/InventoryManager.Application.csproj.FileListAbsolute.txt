@@ -1,0 +1,16 @@
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.csproj.AssemblyReference.cache
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.AssemblyInfoInputs.cache
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.AssemblyInfo.cs
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.csproj.CoreCompileInputs.cache
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.sourcelink.json
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\bin\Debug\net10.0\InventoryManager.Application.deps.json
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\bin\Debug\net10.0\InventoryManager.Application.dll
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\bin\Debug\net10.0\InventoryManager.Application.pdb
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\bin\Debug\net10.0\InventoryManager.Domain.dll
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\bin\Debug\net10.0\InventoryManager.Domain.pdb
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\Inventor.0B31792E.Up2Date
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.dll
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\refint\InventoryManager.Application.dll
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\InventoryManager.Application.pdb
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Application\obj\Debug\net10.0\ref\InventoryManager.Application.dll
