@@ -24,6 +24,9 @@ public static class DependencyInjection
                 configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
+        // Register IAppDbContext so Application handlers can inject the interface
+        services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
+
         // ─── Redis ────────────────────────────────────────────────────────────
         // Used for: invite tokens, password reset tokens, low-stock alert deduplication
         services.AddSingleton<IConnectionMultiplexer>(sp =>

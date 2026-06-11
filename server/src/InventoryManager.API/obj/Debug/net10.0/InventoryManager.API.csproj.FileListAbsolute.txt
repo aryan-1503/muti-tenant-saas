@@ -187,4 +187,3 @@ C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.API\obj\Debug\
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.API\obj\Debug\net10.0\InventoryManager.API.pdb
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.API\obj\Debug\net10.0\InventoryManager.API.genruntimeconfig.cache
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.API\obj\Debug\net10.0\ref\InventoryManager.API.dll
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

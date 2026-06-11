@@ -29,4 +29,3 @@ C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.pdb
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.genruntimeconfig.cache
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\ref\InventoryManager.Infrastructure.dll
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

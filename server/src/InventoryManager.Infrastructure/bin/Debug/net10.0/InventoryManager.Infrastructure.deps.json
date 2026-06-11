@@ -447,22 +447,22 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/10.0.8": {
+      "Microsoft.EntityFrameworkCore/10.0.9": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.8"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.9"
         },
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
-            "assemblyVersion": "10.0.8.0",
-            "fileVersion": "10.0.826.23019"
+            "assemblyVersion": "10.0.9.0",
+            "fileVersion": "10.0.926.27113"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.8": {
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "10.0.8.0",
-            "fileVersion": "10.0.826.23019"
+            "assemblyVersion": "10.0.9.0",
+            "fileVersion": "10.0.926.27113"
           }
         }
       },
@@ -483,7 +483,7 @@
       },
       "Microsoft.EntityFrameworkCore.Relational/10.0.8": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.8"
+          "Microsoft.EntityFrameworkCore": "10.0.9"
         },
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
@@ -782,11 +782,13 @@
       },
       "InventoryManager.Application/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.2.0",
           "CsvHelper": "33.1.0",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
           "InventoryManager.Domain": "1.0.0",
-          "MediatR": "14.1.0"
+          "MediatR": "14.1.0",
+          "Microsoft.EntityFrameworkCore": "10.0.9"
         },
         "runtime": {
           "InventoryManager.Application.dll": {
@@ -944,19 +946,19 @@
       "path": "microsoft.data.sqlclient.sni.runtime/6.0.2",
       "hashPath": "microsoft.data.sqlclient.sni.runtime.6.0.2.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore/10.0.8": {
+    "Microsoft.EntityFrameworkCore/10.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EJx+fIBMgBlgD+ublKCn+GTOJkw3UqV7xOjYWBRVdUYyIm8UfvAsmSOPFiIInsWTHyMEYUJ9gCJY1jwX+6UB7w==",
-      "path": "microsoft.entityframeworkcore/10.0.8",
-      "hashPath": "microsoft.entityframeworkcore.10.0.8.nupkg.sha512"
+      "sha512": "sha512-tu85SRzOT021V7EQlViCiAE7TqldVn469Y6lt5TEn/+XC4/MeNCHgMRSxqYuWqvF4zAQZUhCmtNEZuM3ss4LeA==",
+      "path": "microsoft.entityframeworkcore/10.0.9",
+      "hashPath": "microsoft.entityframeworkcore.10.0.9.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.8": {
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jbKDXWPZQhuPHygMnwzNOqxBADVcpRVytcKYZsA++QqhPkpF93Ta8o5mbJQGrARSjlkr9WtOaADV97EDMOZ7DA==",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.8",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.8.nupkg.sha512"
+      "sha512": "sha512-GRMaiPkqYna/gCsyDffYDWmefGPC3hDrdMw+2rrGcQwhs6uZOsaMQXMJnoXQ35tx9SkBV2ieRRU9N/jLOO6BZw==",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.9",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.9.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Design/8.0.0": {
       "type": "package",

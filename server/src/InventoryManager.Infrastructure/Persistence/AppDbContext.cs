@@ -26,7 +26,7 @@ namespace InventoryManager.Infrastructure.Persistence;
 /// IMPORTANT: SaveChangesAsync override auto-stamps TenantId and timestamps on new entities.
 /// Developers don't set TenantId manually — the context does it.
 /// </summary>
-public class AppDbContext : DbContext
+public class AppDbContext : DbContext, IAppDbContext
 {
     private readonly ICurrentTenantService _tenantService;
 

@@ -15,6 +15,8 @@ public class AppUser : TenantScopedEntity
     public UserRole Role { get; set; } = UserRole.Staff;
     public bool IsActive { get; set; } = true;
     public DateTime? LastLoginAt { get; set; }
+    public string? PasswordResetToken { get; set; }
+    public DateTime? PasswordResetTokenExpiresAt { get; set; }
 
     // Navigation
     public Tenant Tenant { get; set; } = null!;

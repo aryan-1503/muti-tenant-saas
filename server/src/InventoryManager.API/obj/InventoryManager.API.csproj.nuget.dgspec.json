@@ -579,6 +579,10 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "CsvHelper": {
               "target": "Package",
               "version": "[33.1.0, )"
@@ -595,9 +599,17 @@
               "target": "Package",
               "version": "[14.1.0, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
-              "version": "[10.0.8, )"
+              "version": "[10.0.9, )"
             }
           },
           "imports": [

@@ -17,7 +17,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.8")
+                .HasAnnotation("ProductVersion", "10.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -48,6 +48,12 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordResetToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PasswordResetTokenExpiresAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
@@ -196,6 +202,16 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("ExpiresAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("InvitedById")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("InvitedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
@@ -210,6 +226,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("InvitedById");
 
                     b.HasIndex("TenantId");
 
@@ -912,11 +930,19 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("InventoryManager.Domain.Entities.InviteToken", b =>
                 {
+                    b.HasOne("InventoryManager.Domain.Entities.AppUser", "InvitedBy")
+                        .WithMany()
+                        .HasForeignKey("InvitedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("InventoryManager.Domain.Entities.Tenant", "Tenant")
                         .WithMany()
                         .HasForeignKey("TenantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("InvitedBy");
 
                     b.Navigation("Tenant");
                 });

@@ -522,11 +522,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/10.0.8": {
+      "Microsoft.EntityFrameworkCore/10.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.8",
-          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.8"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.9",
+          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.9"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
@@ -542,7 +542,7 @@
           "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.8": {
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -555,7 +555,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/10.0.8": {
+      "Microsoft.EntityFrameworkCore.Analyzers/10.0.9": {
         "type": "package"
       },
       "Microsoft.EntityFrameworkCore.Design/8.0.0": {
@@ -1082,11 +1082,13 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "BCrypt.Net-Next": "4.2.0",
           "CsvHelper": "33.1.0",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
           "InventoryManager.Domain": "1.0.0",
-          "MediatR": "14.1.0"
+          "MediatR": "14.1.0",
+          "Microsoft.EntityFrameworkCore": "10.0.9"
         },
         "compile": {
           "bin/placeholder/InventoryManager.Application.dll": {}
@@ -1921,10 +1923,10 @@
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
       ]
     },
-    "Microsoft.EntityFrameworkCore/10.0.8": {
-      "sha512": "EJx+fIBMgBlgD+ublKCn+GTOJkw3UqV7xOjYWBRVdUYyIm8UfvAsmSOPFiIInsWTHyMEYUJ9gCJY1jwX+6UB7w==",
+    "Microsoft.EntityFrameworkCore/10.0.9": {
+      "sha512": "tu85SRzOT021V7EQlViCiAE7TqldVn469Y6lt5TEn/+XC4/MeNCHgMRSxqYuWqvF4zAQZUhCmtNEZuM3ss4LeA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/10.0.8",
+      "path": "microsoft.entityframeworkcore/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1933,14 +1935,14 @@
         "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props",
         "lib/net10.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.10.0.8.nupkg.sha512",
+        "microsoft.entityframeworkcore.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.8": {
-      "sha512": "jbKDXWPZQhuPHygMnwzNOqxBADVcpRVytcKYZsA++QqhPkpF93Ta8o5mbJQGrARSjlkr9WtOaADV97EDMOZ7DA==",
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
+      "sha512": "GRMaiPkqYna/gCsyDffYDWmefGPC3hDrdMw+2rrGcQwhs6uZOsaMQXMJnoXQ35tx9SkBV2ieRRU9N/jLOO6BZw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.8",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1948,21 +1950,21 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.10.0.8.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/10.0.8": {
-      "sha512": "M3BZ8JH8rB6BE7dO2g9iVbrHLnEz9wMXT6q+tDR6Nq3gyP3KmBj5OTiZGxyF3vesjOQNKanYoPGSNBR4kR2llg==",
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.9": {
+      "sha512": "aiEFB+C5EsZGqxvMPazE07hbWsp4iPaufJpanGt5O+lrwv7mJLrqma5haVIgFAPCyhQkmk75XSCEubT1zUjxtA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/10.0.8",
+      "path": "microsoft.entityframeworkcore.analyzers/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "docs/PACKAGE.md",
-        "microsoft.entityframeworkcore.analyzers.10.0.8.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
