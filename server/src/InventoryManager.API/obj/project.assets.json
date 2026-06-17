@@ -732,10 +732,10 @@
           "build/net10.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/10.0.8": {
+      "Microsoft.EntityFrameworkCore.Relational/10.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.8"
+          "Microsoft.EntityFrameworkCore": "10.0.9"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
@@ -748,11 +748,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/10.0.8": {
+      "Microsoft.EntityFrameworkCore.SqlServer/10.0.9": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "6.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.8"
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.9"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -1462,7 +1462,7 @@
           "InventoryManager.Application": "1.0.0",
           "InventoryManager.Domain": "1.0.0",
           "MailKit": "4.17.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.9",
           "StackExchange.Redis": "2.13.17"
         },
         "compile": {
@@ -3055,10 +3055,10 @@
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/10.0.8": {
-      "sha512": "UU3diAD2wwZveye2rnrwaF/wvJ9tm5iL2fuY9TTap6/iGQK1OO29M1BzXZRlRPVH/dByt5w/pISBSFtyR7hTqw==",
+    "Microsoft.EntityFrameworkCore.Relational/10.0.9": {
+      "sha512": "dEoyYKgiaZHHgOFm1WMWm1sFEsEuhPWufX4L9PekKtqd/RaIcPjkCjvbrVvJtApErb5wPSJhYvnTlxhH+p9h2g==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/10.0.8",
+      "path": "microsoft.entityframeworkcore.relational/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3066,14 +3066,14 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.10.0.8.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/10.0.8": {
-      "sha512": "A+FLIsTH9l5DG2iD6QW6Mfwlvr+BjWme/jJ2hvwmmENTr7lR1UWmgCtKCjDYcHxqdAD15bb4PgQnSzw12DV/pw==",
+    "Microsoft.EntityFrameworkCore.SqlServer/10.0.9": {
+      "sha512": "wjgpB/UFSeMU3uMfMzD4so567vJi5UugE6iTcONBx+rPb/PWpjYlzYKyxm2pGAFNpTFNbqoirtt7uUCc97Tfiw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/10.0.8",
+      "path": "microsoft.entityframeworkcore.sqlserver/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3081,7 +3081,7 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.10.0.8.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.10.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },

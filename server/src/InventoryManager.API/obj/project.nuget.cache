@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CeR5MkUzYj0=",
+  "dgSpecHash": "XWWtRJ08fjE=",
   "success": true,
   "projectFilePath": "C:\\Users\\Aryan\\Codes\\MultiTenant_Saas\\server\\src\\InventoryManager.API\\InventoryManager.API.csproj",
   "expectedPackageFiles": [
@@ -33,8 +33,8 @@
     "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.9\\microsoft.entityframeworkcore.abstractions.10.0.9.nupkg.sha512",
     "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.9\\microsoft.entityframeworkcore.analyzers.10.0.9.nupkg.sha512",
     "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.entityframeworkcore.design\\10.0.8\\microsoft.entityframeworkcore.design.10.0.8.nupkg.sha512",
-    "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.8\\microsoft.entityframeworkcore.relational.10.0.8.nupkg.sha512",
-    "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\10.0.8\\microsoft.entityframeworkcore.sqlserver.10.0.8.nupkg.sha512",
+    "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.9\\microsoft.entityframeworkcore.relational.10.0.9.nupkg.sha512",
+    "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\10.0.9\\microsoft.entityframeworkcore.sqlserver.10.0.9.nupkg.sha512",
     "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.extensions.dependencymodel\\10.0.8\\microsoft.extensions.dependencymodel.10.0.8.nupkg.sha512",
     "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.identity.client\\4.73.1\\microsoft.identity.client.4.73.1.nupkg.sha512",
     "C:\\Users\\Aryan\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.73.1\\microsoft.identity.client.extensions.msal.4.73.1.nupkg.sha512",

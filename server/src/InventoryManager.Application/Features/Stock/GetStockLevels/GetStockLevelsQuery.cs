@@ -85,9 +85,20 @@ public class GetStockLevelsQueryHandler : IRequestHandler<GetStockLevelsQuery, L
             .Select(sl => new { sl.ProductId, sl.WarehouseId })
             .ToList();
 
+        var productIds = productWarehousePairs
+            .Select(x => x.ProductId)
+            .Distinct()
+            .ToList();
+
+        var warehouseIds = productWarehousePairs
+            .Select(x => x.WarehouseId)
+            .Distinct()
+            .ToList();
+
         var lastMovements = await _db.StockMovements
-            .Where(m => productWarehousePairs
-                .Any(p => p.ProductId == m.ProductId && p.WarehouseId == m.WarehouseId))
+            .Where(m =>
+                productIds.Contains(m.ProductId) &&
+                warehouseIds.Contains(m.WarehouseId))
             .GroupBy(m => new { m.ProductId, m.WarehouseId })
             .Select(g => new
             {

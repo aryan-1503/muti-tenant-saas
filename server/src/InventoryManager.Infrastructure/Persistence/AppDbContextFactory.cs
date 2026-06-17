@@ -36,7 +36,8 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     /// </summary>
     private sealed class DesignTimeTenantService : ICurrentTenantService
     {
-        public Guid TenantId => Guid.Empty;  // Safe for design-time — no actual queries run
+        public bool HasTenant => false;
+        public Guid TenantId => Guid.Empty;
         public void SetTenant(Guid tenantId) { }
     }
 }

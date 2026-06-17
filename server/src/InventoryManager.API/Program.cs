@@ -30,7 +30,13 @@ try
     builder.Services.AddApplication();  // Registers all FluentValidation validators
 
     // ─── Controllers ─────────────────────────────────────────────────────────
-    builder.Services.AddControllers();
+    builder.Services.AddControllers()
+        .AddJsonOptions(opts =>
+        {
+            // Accept and return enum values as strings (e.g. \"Manager\") not integers.
+            opts.JsonSerializerOptions.Converters.Add(
+                new System.Text.Json.Serialization.JsonStringEnumConverter());
+        });
     builder.Services.AddOpenApi();
 
     // ─── CORS (for Angular dev server) ───────────────────────────────────────
@@ -77,9 +83,10 @@ try
 
     app.UseSerilogRequestLogging();
 
-    app.UseHttpsRedirection();
+    app.UseCors("Angular");       // ← MUST be before UseHttpsRedirection so the
+                                  //   307 redirect response itself carries CORS headers.
 
-    app.UseCors("Angular");
+    app.UseHttpsRedirection();
 
     app.UseAuthentication();   // Validates JWT, sets HttpContext.User
     app.UseAuthorization();    // Enforces [Authorize] attributes

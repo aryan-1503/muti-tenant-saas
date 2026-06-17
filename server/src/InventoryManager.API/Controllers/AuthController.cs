@@ -129,10 +129,13 @@ public class AuthController : ControllerBase
     /// <summary>Sets the refresh token as an HttpOnly, Secure, SameSite=Strict cookie.</summary>
     private void SetRefreshTokenCookie(string token)
     {
+        var isProduction = HttpContext.RequestServices
+            .GetRequiredService<IWebHostEnvironment>().IsProduction();
+
         Response.Cookies.Append(RefreshTokenCookieName, token, new CookieOptions
         {
-            HttpOnly = true,     // JS cannot read this
-            Secure = true,       // HTTPS only (set to false for local HTTP dev if needed)
+            HttpOnly = true,          // JS cannot read this
+            Secure = isProduction,    // HTTPS only in production; HTTP allowed in dev
             SameSite = SameSiteMode.Strict,
             Expires = DateTimeOffset.UtcNow.AddDays(7)
         });

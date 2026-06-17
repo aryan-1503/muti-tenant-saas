@@ -1,10 +1,3 @@
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.AssemblyInfo.cs
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.sourcelink.json
-C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\rpswa.dswa.cache.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\bin\Debug\net10.0\InventoryManager.Infrastructure.staticwebassets.endpoints.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\bin\Debug\net10.0\InventoryManager.Infrastructure.deps.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\bin\Debug\net10.0\InventoryManager.Infrastructure.runtimeconfig.json
@@ -14,6 +7,13 @@ C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\bin\Debug\net10.0\InventoryManager.Domain.dll
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\bin\Debug\net10.0\InventoryManager.Domain.pdb
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\bin\Debug\net10.0\InventoryManager.Application.pdb
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.AssemblyInfo.cs
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.sourcelink.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -23,6 +23,7 @@ C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\Inventor.FC8DFA82.Up2Date
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\InventoryManager.Infrastructure.dll
 C:\Users\Aryan\Codes\MultiTenant_Saas\server\src\InventoryManager.Infrastructure\obj\Debug\net10.0\refint\InventoryManager.Infrastructure.dll

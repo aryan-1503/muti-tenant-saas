@@ -4,23 +4,20 @@ using InventoryManager.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace InventoryManager.Infrastructure.Persistence.Migrations
+namespace InventoryManager.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260609164453_InitialCreate")]
-    partial class InitialCreate
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.8")
+                .HasAnnotation("ProductVersion", "10.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -51,6 +48,12 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordResetToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PasswordResetTokenExpiresAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
@@ -163,6 +166,9 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("PurchaseOrderLineId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("PurchaseOrderLineId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("QuantityReceived")
                         .HasColumnType("decimal(18,2)");
 
@@ -176,6 +182,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasIndex("ProductId");
 
                     b.HasIndex("PurchaseOrderLineId");
+
+                    b.HasIndex("PurchaseOrderLineId1");
 
                     b.ToTable("GoodsReceiptNoteLines");
                 });
@@ -199,6 +207,13 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("ExpiresAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("InvitedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
@@ -213,6 +228,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("InvitedByUserId");
 
                     b.HasIndex("TenantId");
 
@@ -348,6 +365,9 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("SupplierId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("SupplierId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("TenantId")
                         .HasColumnType("uniqueidentifier");
 
@@ -362,6 +382,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasIndex("CreatedByUserId");
 
                     b.HasIndex("SupplierId");
+
+                    b.HasIndex("SupplierId1");
 
                     b.HasIndex("WarehouseId");
 
@@ -383,6 +405,9 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("PurchaseOrderId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("PurchaseOrderId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("QuantityOrdered")
                         .HasColumnType("decimal(18,2)");
 
@@ -400,6 +425,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasIndex("ProductId");
 
                     b.HasIndex("PurchaseOrderId");
+
+                    b.HasIndex("PurchaseOrderId1");
 
                     b.ToTable("PurchaseOrderLines");
                 });
@@ -521,6 +548,9 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("StockCountId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("StockCountId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("SystemQuantity")
                         .HasColumnType("decimal(18,2)");
 
@@ -532,6 +562,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasIndex("ProductId");
 
                     b.HasIndex("StockCountId");
+
+                    b.HasIndex("StockCountId1");
 
                     b.ToTable("StockCountItems");
                 });
@@ -563,11 +595,16 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("WarehouseId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("WarehouseId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
                     b.HasIndex("WarehouseId");
+
+                    b.HasIndex("WarehouseId1");
 
                     b.HasIndex("TenantId", "ProductId", "WarehouseId")
                         .IsUnique();
@@ -699,6 +736,9 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.Property<decimal>("QuantityRequested")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<Guid?>("StockTransferId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("TransferId")
                         .HasColumnType("uniqueidentifier");
 
@@ -708,6 +748,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("StockTransferId");
 
                     b.HasIndex("TransferId");
 
@@ -876,7 +918,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.Warehouse", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("PurchaseOrder");
@@ -897,14 +939,18 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("InventoryManager.Domain.Entities.PurchaseOrderLine", "PurchaseOrderLine")
-                        .WithMany("GRNLines")
+                        .WithMany()
                         .HasForeignKey("PurchaseOrderLineId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("InventoryManager.Domain.Entities.PurchaseOrderLine", null)
+                        .WithMany("GRNLines")
+                        .HasForeignKey("PurchaseOrderLineId1");
 
                     b.Navigation("GoodsReceiptNote");
 
@@ -915,11 +961,19 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("InventoryManager.Domain.Entities.InviteToken", b =>
                 {
+                    b.HasOne("InventoryManager.Domain.Entities.AppUser", "InvitedBy")
+                        .WithMany()
+                        .HasForeignKey("InvitedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("InventoryManager.Domain.Entities.Tenant", "Tenant")
                         .WithMany()
                         .HasForeignKey("TenantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("InvitedBy");
 
                     b.Navigation("Tenant");
                 });
@@ -957,19 +1011,23 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.AppUser", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("InventoryManager.Domain.Entities.Supplier", "Supplier")
-                        .WithMany("PurchaseOrders")
+                        .WithMany()
                         .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("InventoryManager.Domain.Entities.Supplier", null)
+                        .WithMany("PurchaseOrders")
+                        .HasForeignKey("SupplierId1");
 
                     b.HasOne("InventoryManager.Domain.Entities.Warehouse", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("CreatedByUser");
@@ -984,14 +1042,18 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("InventoryManager.Domain.Entities.PurchaseOrder", "PurchaseOrder")
-                        .WithMany("Lines")
+                        .WithMany()
                         .HasForeignKey("PurchaseOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("InventoryManager.Domain.Entities.PurchaseOrder", null)
+                        .WithMany("Lines")
+                        .HasForeignKey("PurchaseOrderId1");
 
                     b.Navigation("Product");
 
@@ -1028,7 +1090,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.Warehouse", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AssignedUser");
@@ -1049,10 +1111,14 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("InventoryManager.Domain.Entities.StockCount", "StockCount")
-                        .WithMany("Items")
+                        .WithMany()
                         .HasForeignKey("StockCountId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("InventoryManager.Domain.Entities.StockCount", null)
+                        .WithMany("Items")
+                        .HasForeignKey("StockCountId1");
 
                     b.Navigation("Product");
 
@@ -1068,10 +1134,14 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("InventoryManager.Domain.Entities.Warehouse", "Warehouse")
-                        .WithMany("StockLevels")
+                        .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("InventoryManager.Domain.Entities.Warehouse", null)
+                        .WithMany("StockLevels")
+                        .HasForeignKey("WarehouseId1");
 
                     b.Navigation("Product");
 
@@ -1083,7 +1153,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.AppUser", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("InventoryManager.Domain.Entities.Product", "Product")
@@ -1095,7 +1165,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.Warehouse", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("CreatedByUser");
@@ -1116,13 +1186,13 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     b.HasOne("InventoryManager.Domain.Entities.Warehouse", "FromWarehouse")
                         .WithMany()
                         .HasForeignKey("FromWarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("InventoryManager.Domain.Entities.Warehouse", "ToWarehouse")
                         .WithMany()
                         .HasForeignKey("ToWarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("CreatedByUser");
@@ -1140,10 +1210,14 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InventoryManager.Domain.Entities.StockTransfer", "Transfer")
+                    b.HasOne("InventoryManager.Domain.Entities.StockTransfer", null)
                         .WithMany("Lines")
+                        .HasForeignKey("StockTransferId");
+
+                    b.HasOne("InventoryManager.Domain.Entities.StockTransfer", "Transfer")
+                        .WithMany()
                         .HasForeignKey("TransferId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Product");

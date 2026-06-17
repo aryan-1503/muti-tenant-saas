@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace InventoryManager.Infrastructure.Persistence.Migrations
+namespace InventoryManager.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -53,31 +53,6 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InviteTokens",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false),
-                    Token = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExpiresAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AcceptedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_InviteTokens", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_InviteTokens_Tenants_TenantId",
-                        column: x => x.TenantId,
-                        principalTable: "Tenants",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Suppliers",
                 columns: table => new
                 {
@@ -117,6 +92,8 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     Role = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     LastLoginAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PasswordResetToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PasswordResetTokenExpiresAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -194,6 +171,39 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "InviteTokens",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<int>(type: "int", nullable: false),
+                    Token = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    InvitedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExpiresAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AcceptedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InviteTokens", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_InviteTokens_Tenants_TenantId",
+                        column: x => x.TenantId,
+                        principalTable: "Tenants",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_InviteTokens_Users_InvitedByUserId",
+                        column: x => x.InvitedByUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Notifications",
                 columns: table => new
                 {
@@ -255,6 +265,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     ExpectedDeliveryDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SupplierId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -267,19 +278,24 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.SupplierId,
                         principalTable: "Suppliers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PurchaseOrders_Suppliers_SupplierId1",
+                        column: x => x.SupplierId1,
+                        principalTable: "Suppliers",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_PurchaseOrders_Users_CreatedByUserId",
                         column: x => x.CreatedByUserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PurchaseOrders_Warehouses_WarehouseId",
                         column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -324,7 +340,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -357,13 +373,13 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.FromWarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_StockTransfers_Warehouses_ToWarehouseId",
                         column: x => x.ToWarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -375,6 +391,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     WarehouseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     QuantityOnHand = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     QuantityInTransit = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    WarehouseId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -393,7 +410,12 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_StockLevels_Warehouses_WarehouseId1",
+                        column: x => x.WarehouseId1,
+                        principalTable: "Warehouses",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -429,13 +451,13 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.CreatedByUserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_StockMovements_Warehouses_WarehouseId",
                         column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -472,7 +494,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -485,6 +507,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     QuantityOrdered = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     QuantityReceived = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     UnitCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PurchaseOrderId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -496,13 +519,18 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PurchaseOrderLines_PurchaseOrders_PurchaseOrderId",
                         column: x => x.PurchaseOrderId,
                         principalTable: "PurchaseOrders",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PurchaseOrderLines_PurchaseOrders_PurchaseOrderId1",
+                        column: x => x.PurchaseOrderId1,
+                        principalTable: "PurchaseOrders",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -516,6 +544,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     CountedQuantity = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     IsApproved = table.Column<bool>(type: "bit", nullable: true),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StockCountId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -533,7 +562,12 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.StockCountId,
                         principalTable: "StockCounts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_StockCountItems_StockCounts_StockCountId1",
+                        column: x => x.StockCountId1,
+                        principalTable: "StockCounts",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -546,6 +580,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     QuantityRequested = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     QuantityReceived = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StockTransferId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -559,11 +594,16 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_StockTransferLines_StockTransfers_StockTransferId",
+                        column: x => x.StockTransferId,
+                        principalTable: "StockTransfers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_StockTransferLines_StockTransfers_TransferId",
                         column: x => x.TransferId,
                         principalTable: "StockTransfers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -577,6 +617,7 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                     QuantityReceived = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Condition = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PurchaseOrderLineId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -594,13 +635,18 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_GoodsReceiptNoteLines_PurchaseOrderLines_PurchaseOrderLineId",
                         column: x => x.PurchaseOrderLineId,
                         principalTable: "PurchaseOrderLines",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_GoodsReceiptNoteLines_PurchaseOrderLines_PurchaseOrderLineId1",
+                        column: x => x.PurchaseOrderLineId1,
+                        principalTable: "PurchaseOrderLines",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -624,6 +670,11 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 column: "PurchaseOrderLineId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GoodsReceiptNoteLines_PurchaseOrderLineId1",
+                table: "GoodsReceiptNoteLines",
+                column: "PurchaseOrderLineId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GoodsReceiptNotes_PurchaseOrderId",
                 table: "GoodsReceiptNotes",
                 column: "PurchaseOrderId");
@@ -637,6 +688,11 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 name: "IX_GoodsReceiptNotes_WarehouseId",
                 table: "GoodsReceiptNotes",
                 column: "WarehouseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InviteTokens_InvitedByUserId",
+                table: "InviteTokens",
+                column: "InvitedByUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InviteTokens_TenantId",
@@ -670,6 +726,11 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 column: "PurchaseOrderId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PurchaseOrderLines_PurchaseOrderId1",
+                table: "PurchaseOrderLines",
+                column: "PurchaseOrderId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PurchaseOrders_CreatedByUserId",
                 table: "PurchaseOrders",
                 column: "CreatedByUserId");
@@ -678,6 +739,11 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 name: "IX_PurchaseOrders_SupplierId",
                 table: "PurchaseOrders",
                 column: "SupplierId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PurchaseOrders_SupplierId1",
+                table: "PurchaseOrders",
+                column: "SupplierId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PurchaseOrders_WarehouseId",
@@ -698,6 +764,11 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 name: "IX_StockCountItems_StockCountId",
                 table: "StockCountItems",
                 column: "StockCountId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StockCountItems_StockCountId1",
+                table: "StockCountItems",
+                column: "StockCountId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StockCounts_AssignedUserId",
@@ -736,6 +807,11 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 column: "WarehouseId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_StockLevels_WarehouseId1",
+                table: "StockLevels",
+                column: "WarehouseId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_StockMovements_CreatedByUserId",
                 table: "StockMovements",
                 column: "CreatedByUserId");
@@ -754,6 +830,11 @@ namespace InventoryManager.Infrastructure.Persistence.Migrations
                 name: "IX_StockTransferLines_ProductId",
                 table: "StockTransferLines",
                 column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StockTransferLines_StockTransferId",
+                table: "StockTransferLines",
+                column: "StockTransferId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StockTransferLines_TransferId",
